@@ -32,7 +32,7 @@ public class TestProduct {
 				
 				assertEquals(0.0,p.getPrice(),0.1);
 				
-				assertEquals("null null 0GB (Cellular connectivty: false): $(0.00 - 0.00)",p.toString());
+				assertEquals("null null 0GB (Cellular connectivity: false): $(0.00 - 0.00)",p.toString());
 				
 				
 				
@@ -65,7 +65,7 @@ public class TestProduct {
 		
 		assertEquals(1709.00,p.getPrice(),0.1);
 		
-		assertEquals("iPad Pro 12.9 null 0GB (Cellular connectivty: false): $(1709.00 - 0.00)",p.toString());
+		assertEquals("iPad Pro 12.9 null 0GB (Cellular connectivity: false): $(1709.00 - 0.00)",p.toString());
 	
 				
 				
@@ -105,7 +105,7 @@ public class TestProduct {
 		
 		assertEquals(1489.00,p.getPrice(),0.1);
 		
-		assertEquals("iPad Pro 12.9 Space Grey 1000GB (Cellular connectivty: true): $(1709.00 - 220.00)",p.toString());
+		assertEquals("iPad Pro 12.9 Space Grey 1000GB (Cellular connectivity: true): $(1709.00 - 220.00)",p.toString());
 	
 				
 				

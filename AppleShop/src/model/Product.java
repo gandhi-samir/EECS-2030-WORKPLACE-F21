@@ -77,7 +77,7 @@ public class Product {
 		String s="";
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append(model+" "+finish+" "+storage+"GB "+ "(Cellular connectivty: "+hasCellularConnectivity+"): $("+String.format("%.2f", originalPrice)+" - "+String.format("%.2f", discountValue)+")"); 
+		sb.append(model+" "+finish+" "+storage+"GB "+ "(Cellular connectivity: " +hasCellularConnectivity+"): $("+String.format("%.2f", originalPrice)+" - "+String.format("%.2f", discountValue)+")"); 
 		s=sb.toString(); 
 		
 		return s;
