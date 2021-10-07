@@ -49,7 +49,7 @@ public class Transcript {
 	public void addRegistrations(Registration[] registrations) {
 		if(registrations.length>=1){
 			for(int i=0; i <registrations.length;i++) {
-				addRegistration(registrations[0]);
+				addRegistration(registrations[i]);
 				
 			}
 		}
