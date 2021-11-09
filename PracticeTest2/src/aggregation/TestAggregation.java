@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import model.Point;
+
 
 /* Classes you create must be placed within the `aggregation` package. */
 
