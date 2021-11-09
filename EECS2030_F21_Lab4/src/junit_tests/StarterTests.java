@@ -4,6 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import model.Channel;
+import model.Follower;
+import model.Monitor;
+import model.Subscriber;
+
 /*
  * Requirement: Any classes you create must reside in the `model` package and be imported properly.
  * For example, creating a new class `Foo` in the `model` package should result in:
