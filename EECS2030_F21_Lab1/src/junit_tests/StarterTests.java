@@ -459,9 +459,13 @@ public class StarterTests {
 		app3.getUpdateHistory()[0].addFix("Fixed a multi-window issue");
 		app3.getUpdateHistory()[1].addFix("Added line spacing options for text");
 		
+		
+		App app4 = new App("Notability", 20); 
 		canadianStore.addApp(app1);
 		canadianStore.addApp(app2);
 		canadianStore.addApp(app3);
+		canadianStore.addApp(app4);
+		
 		
 		/* Create three new accounts with names and a common registered store. */
 		Account acc1 = new Account("Suyeon", canadianStore);
@@ -746,6 +750,9 @@ public class StarterTests {
 		assertEquals("GoodNotes 5 is successfully uninstalled for Suyeon.", acc1.toString());
 		assertTrue(acc1.getNamesOfDownloadedApps().length == 0);
 		assertTrue(acc1.getObjectsOfDownloadedApps().length == 0);
+		acc1.download("GoodNotes 5");
+		acc1.uninstall("GoodNotes 5");
+		assertEquals("GoodNotes 5 is successfully uninstalled for Suyeon.", acc1.toString());
 		
 		acc2.uninstall("GoodNotes 5");
 		assertEquals("GoodNotes 5 is successfully uninstalled for Yuna.", acc2.toString());
