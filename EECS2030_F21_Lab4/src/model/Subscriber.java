@@ -24,15 +24,31 @@ public class Subscriber extends Follower {
 	}
 
 	public String toString() {
+		String followList="";
+		if(getChannels().length>0) {
+		
+		
+		for(int i =0; i <getChannels().length;i++) {
+
+	if(getChannels()[i]!=null) {
+			followList+=getChannels()[i].getName();
+			
+			if(i<getChannels().length-1&&getChannels()[i+1]!=null) {
+				
+				followList+=", ";
+			}
+		}
+		}
+		}
 
 		if (getNOC() > 0 && nOR == 0) {
-			status = "Subscriber " + this.name + " follows [" + getFollowList() + "] and has no recommended videos.";
+			status = "Subscriber " + this.name + " follows [" + followList + "] and has no recommended videos.";
 		}
 		if (getNOC() == 0 && nOR == 0) {
 			status = "Subscriber " + this.name + " follows no channels and has no recommended videos.";
 		}
 		if (getNOC() > 0 && nOR > 0) {
-			status = "Subscriber " + this.name + " follows [" + getFollowList() + "] and is recommended <"
+			status = "Subscriber " + this.name + " follows [" + followList + "] and is recommended <"
 					+ reccomendationList + ">.";
 		}
 
@@ -40,6 +56,7 @@ public class Subscriber extends Follower {
 	}
 
 	public void addChannel(Channel ch1) {
+	
 		addChannel(ch1, maxChannels);
 		
 	}
@@ -53,7 +70,7 @@ public class Subscriber extends Follower {
 	}
 
 	public void removeChannel(Channel ch1) {
-		removeChannel1(ch1, maxChannels);
+		removeChannel(ch1, maxChannels);
 
 	}
 
@@ -71,17 +88,12 @@ public class Subscriber extends Follower {
 
 		for (int j = 0; j < nOR; j++) {
 			reccomendationList += reccomendationsArrayList[j];
-			if (reccomendationsArrayList[j + 1] != null&&j+1!=nOR) {
+			if (j+1!=nOR&&reccomendationsArrayList[j + 1] != null) {
 				reccomendationList += ", ";
 			}
 		}
 
 	}
 
-	public void watch(String videoName, int watchTime) {
-		updateWatch(videoName,watchTime);
-		
-		
-		
-	}
+
 }

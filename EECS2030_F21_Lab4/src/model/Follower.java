@@ -2,58 +2,36 @@ package model;
 
 public class Follower {
 
-private String followList="";
 
-private int nOC=0;
-private Channel[] channel = new Channel[1000];
-Channel[] channelArrayList = new Channel[0];
+	private int nOC = 0;
+	private Channel[] channel = new Channel[1000];
+	Channel[] channelArrayList = new Channel[0];
 
+	public Follower() {
 
-public Follower(){
-	
-}
-
-public void addChannel(Channel ch1, int maxChannels) {
-	channel[nOC] = ch1;
-	nOC++;
-
-	channelArrayList = new Channel[maxChannels];
-	for (int i = 0; i < nOC; i++) {
-		channelArrayList[i] = channel[i];
 	}
-	followList = "";
-	
-	
 
-	for (int j = 0; j < nOC; j++) {
-		followList += channelArrayList[j].getName();
-		if(this instanceof Monitor) {
-			
-			if(channelArrayList[j].getViews()>0) {
-				followList+=" {#views: "+channelArrayList[j].getViews()+", max watch time: "+channelArrayList[j].getMaxTime()+", avg watch time: "+String.format("%.2f", channelArrayList[j].getTime())+"}";
+	public void addChannel(Channel ch1, int maxChannels) {
+		//Channel c1 = new Channel(ch1);
+		channel[nOC] = ch1;
+		nOC++;
+
+		channelArrayList = new Channel[maxChannels];
+		for (int i = 0; i < nOC; i++) {
+			channelArrayList[i] = channel[i];
+		}
+	}
+
+	public void removeChannel(Channel ch1, int maxChannels) {
+
+		int index = 0;
+		for (int i = 0; i < nOC; i++) {
+			if (channel[i].getName().equals(ch1.getName())) {
+
+				index = i;
+				break;
 			}
 		}
-		
-		if (channelArrayList[j + 1] != null&&j+1!=nOC) {
-			
-			
-			followList += ", ";
-		}
-	}
-}
-
-
-public void removeChannel1(Channel ch1, int maxChannels) {
-	boolean isFollowing = false;
-	
-	int index = 0;
-	for (int i = 0; i < nOC; i++) {
-		if (channel[i] == ch1) {
-			isFollowing = true;
-			index = i;
-			break;
-		}
-	}
 
 		channelArrayList = new Channel[maxChannels];
 
@@ -67,36 +45,54 @@ public void removeChannel1(Channel ch1, int maxChannels) {
 		}
 		nOC--;
 
-		followList = "";
+	}
 
-		for (int j = 0; j < nOC; j++) {
-			followList += channelArrayList[j].getName();
-			if (channelArrayList[j + 1] != null&&j+1!=nOC) {
-				followList += ", ";
-			}
-		}
+	public Channel[] getChannels() {
+		return channelArrayList;
+	}
+
+	public int getNOC() {
+		return nOC;
+	}
+
+	public void updateWatch(String videoName, int time) {
+
+	}
+
+	public void watch(String videoName, int watchTime) {
+
+		for(int i =0; i <channelArrayList.length;i++) {
 	
-}
-
-public String getFollowList() {
-	return followList;
-}
-
-public int getNOC() {
-	return nOC;
-}
-
-public void updateWatch(String videoName, int time) {
-	for(int i =0; i <nOC;i++) {
-		if(channelArrayList[i].getName().equals(videoName)){
-			channelArrayList[i].updateStats(time);
-			break;
+			if(channelArrayList[i]!=null) {
+				
+				for(int j =0;j<channelArrayList[i].getVideos().length;j++) {
 			
-		}
+					if(channelArrayList[i].getVideos()[j]!=null) {
+					
+						if(channelArrayList[i].getVideos()[j].equals(videoName)) {
+							
+							for(int k=0; k <channelArrayList[i].getFollower().length;k++) {
+							if(channelArrayList[i].getFollower()[k]  instanceof Monitor) {
+								for(int l =0; l <channelArrayList[i].getFollower()[k].getChannels().length;l++) {
+									if(channelArrayList[i].getFollower()[k].getChannels()[l]!=null) {
+									if(channelArrayList[i].getFollower()[k].getChannels()[l].getName().equals(channelArrayList[i].getName())) {
+										channelArrayList[i].getFollower()[k].getChannels()[l].updateStats(watchTime);
+									}
+								}
+								}
+							}
+					
+							}	
+							
+						}
+					}
+				}
+			}
+		
 	}
 }
-
-
-
-
+	
+	public int getViews(int i) {
+		return channelArrayList[i].getViews();
+	}
 }

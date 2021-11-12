@@ -6,6 +6,7 @@ public class Monitor extends Follower {
 	private int maxChannels;
 	private Channel[] channel = new Channel[1000];
 	Channel[] channelArrayList = new Channel[0];
+	
 
 	private int nOC = 0;
 	private String type = "Monitor";
@@ -17,9 +18,31 @@ public class Monitor extends Follower {
 
 	}
 
+	
 	public String toString() {
+		String followList="";
+		if(getChannels().length>0) {
+		
+		
+		for(int i =0; i <getChannels().length;i++) {
+			if(getChannels()[i]!=null) {
+			
+	
+			followList+=getChannels()[i].getName();
+		
+			if(getChannels()[i].getViews()>0) {
+			
+				followList +=" {#views: "+getChannels()[i].getViews()+", max watch time: "+getChannels()[i].getMaxTime()+", avg watch time: "+String.format("%.2f",getChannels()[i].getTime())+"}";
+			}
+			
+			if(i<getChannels().length-1&&getChannels()[i+1]!=null) {
+				followList+=", ";
+			}
+		}
+		}
+		}
 		if (getNOC() > 0) {
-			status = "Monitor " + this.name + " follows [" + getFollowList() + "].";
+			status = "Monitor " + this.name + " follows [" + followList + "].";
 		}
 		if (getNOC() == 0) {
 			status = "Monitor " + this.name + " follows no channels.";
@@ -27,8 +50,10 @@ public class Monitor extends Follower {
 		return this.status;
 	}
 
-	public void addChannel(Channel ch1) {
-		addChannel(ch1, maxChannels);
+	public void addChannel(Channel ch1) {	
+Channel c1 = new Channel(ch1);
+	
+		addChannel(c1,maxChannels);
 
 	}
 
@@ -41,8 +66,16 @@ public class Monitor extends Follower {
 	}
 
 	public void removeChannel(Channel ch1) {
-		removeChannel1(ch1, maxChannels);
+		removeChannel(ch1, maxChannels);
 
 	}
+	
+
+	public void watch(String videoName, int watchTime) {
+
+	
+		}
+	
+	
 
 }

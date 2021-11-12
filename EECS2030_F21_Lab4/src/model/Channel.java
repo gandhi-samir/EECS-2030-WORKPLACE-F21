@@ -9,7 +9,7 @@ public class Channel {
 	private int nOF = 0;
 	private int nOV = 0;
 	private String[] videos = new String[10000];
-	private Follower[] followers = new Follower[1000];
+	private Follower[] followers = new Follower[10000];
 	private Follower[] followerArrayList = new Follower[0];
 	private String[] videoListArray = new String[0];
 
@@ -25,6 +25,25 @@ public class Channel {
 		this.maxFollowers = maxFollowers;
 		this.maxVideos = maxVideos;
 
+	}
+	
+	public Channel(Channel c1) {
+		this.name=c1.name;
+		this.maxFollowers=c1.maxFollowers;
+		this.maxVideos=c1.maxVideos;
+		this.videoListArray=c1.videoListArray;
+		this.followerArrayList=c1.followerArrayList;
+		this.videos=c1.videos;
+		this.views=c1.views;
+		this.followerArrayList=c1.followerArrayList;
+		
+
+		
+		
+	
+		
+		
+		
 	}
 
 	public void releaseANewVideo(String videoName) {
@@ -107,7 +126,7 @@ public class Channel {
 						+ ((Monitor) this.followerArrayList[i]).getName();
 			}
 
-			if (followerArrayList[i + 1] != null&&i+1!=nOF) {
+			if (i+1!=nOF&&followerArrayList[i + 1] != null) {
 				followerList += ", ";
 			}
 
@@ -163,7 +182,7 @@ public class Channel {
 						+ ((Monitor) this.followerArrayList[i]).getName();
 			}
 
-			if (followerArrayList[i + 1] != null&&i+1!=nOF) {
+			if (i+1!=nOF&&followerArrayList[i + 1] != null) {
 				followerList += ", ";
 			}
 
@@ -183,8 +202,8 @@ public class Channel {
 		
 	}
 	
-	public int getTime() {
-		return this.watchTime/this.views;
+	public double getTime() {
+		return (double)this.watchTime/this.views;
 		
 	}
 	public int getViews() {
@@ -194,6 +213,18 @@ public class Channel {
 	public int getMaxTime() {
 		return this.maxWatch;
 		
+	}
+	
+	public String[] getVideos() {
+		return videoListArray;
+	}
+	
+	public int getNOV() {
+		return this.nOV;
+	}
+	
+	public Follower []getFollower() {
+		return followerArrayList;
 	}
 
 }
