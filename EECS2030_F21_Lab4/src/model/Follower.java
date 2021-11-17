@@ -5,7 +5,7 @@ public class Follower {
 
 	private int nOC = 0;
 	private Channel[] channel = new Channel[1000];
-	Channel[] channelArrayList = new Channel[0];
+	private Channel[] channelArrayList = new Channel[0];
 
 	public Follower() {
 

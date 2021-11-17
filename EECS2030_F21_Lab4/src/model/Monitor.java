@@ -5,7 +5,7 @@ public class Monitor extends Follower {
 	private String name = "";
 	private int maxChannels;
 	private Channel[] channel = new Channel[1000];
-	Channel[] channelArrayList = new Channel[0];
+	private Channel[] channelArrayList = new Channel[0];
 	
 
 	private int nOC = 0;
