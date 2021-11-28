@@ -4,6 +4,15 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import model.BinarySeqOperation;
+import model.ConcatAll;
+import model.IllegalOperationException;
+import model.OccursWithin;
+import model.Projection;
+import model.SeqEvaluator;
+import model.SeqOperation;
+import model.SumsOfPrefixes;
+
 /*
  * Requirement: Any classes you create must reside in the `model` package and be imported properly.
  * For example, creating a new class `Foo` in the `model` package should result in:
@@ -116,7 +125,7 @@ public class StarterTests {
 		 */
 		BinarySeqOperation binOp = new OccursWithin(seq1a, seq2);
 		SeqOperation op = binOp;
-		assertEquals("[1, 6, 1] does not occur within [2, 1, 6, 3, 1, 4, 5, 3]", op.toString());
+	assertEquals("[1, 6, 1] does not occur within [2, 1, 6, 3, 1, 4, 5, 3]", op.toString());
 		
 		int[] seq1b = {3, 1, 4, 5}; 
 		op = new OccursWithin(seq1b, seq2);
