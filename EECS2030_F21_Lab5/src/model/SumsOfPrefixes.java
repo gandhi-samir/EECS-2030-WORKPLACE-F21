@@ -2,7 +2,7 @@ package model;
 
 public class SumsOfPrefixes extends BinarySeqOperation {
 private int [] seq1;
-private int[] result;
+protected int[] result;
 private int count=0;
 	public SumsOfPrefixes(int[] seq1) {
 	this.seq1=seq1;

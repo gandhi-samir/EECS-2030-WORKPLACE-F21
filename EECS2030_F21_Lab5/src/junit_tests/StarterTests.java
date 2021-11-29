@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import model.BinarySeqOperation;
 import model.ConcatAll;
+import model.FilterAll;
 import model.IllegalOperationException;
 import model.OccursWithin;
 import model.Projection;
@@ -82,6 +83,8 @@ public class StarterTests {
 		int[] seq1a = {1, 3, 5};
 		int[] seq2 = {2, 1, 6, 3, 1, 4, 5, 3};
 		
+		
+		
 		/*
 		 * Project the 1st sequence to the 2nd sequence:
 		 * 	The resulting sequence contains 
@@ -119,6 +122,8 @@ public class StarterTests {
 	public void test_occurs_within_01() {
 		int[] seq1a = {1, 6, 1};
 		int[] seq2 = {2, 1, 6, 3, 1, 4, 5, 3};
+		
+		
 		
 		/*
 		 * Does the 1st sequence appear as part of the 2nd sequence? 

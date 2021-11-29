@@ -4,7 +4,7 @@ public class OccursWithin extends BinarySeqOperation {
 	private int[] seq1;
 	private int[] seq2;
 
-	private boolean isTrue = false;
+	protected boolean isTrue = false;
 
 	public OccursWithin(int[] seq1a, int[] seq2) {
 		this.seq1 = seq1a;
@@ -23,14 +23,16 @@ public class OccursWithin extends BinarySeqOperation {
 
 				if (seq2[i] == seq1a[0]) {
 					isTrue = true;
-					if (i + seq1a.length < seq2.length) {
+					if (i + seq1a.length <= seq2.length) {
 						for (int j = 0; j < seq1a.length; j++) {
 							if (seq2[i + j] == seq1a[j]) {
 								isTrue = true & isTrue;
 							} else {
 								isTrue = false;
+								break;
 							}
 						}
+						break;
 
 					}
 
@@ -40,6 +42,7 @@ public class OccursWithin extends BinarySeqOperation {
 
 			}
 		}
+		
 
 	}
 
@@ -57,4 +60,6 @@ public class OccursWithin extends BinarySeqOperation {
 		return status;
 
 	}
+	
+	
 }

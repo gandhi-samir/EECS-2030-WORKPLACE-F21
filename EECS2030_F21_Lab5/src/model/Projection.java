@@ -1,7 +1,7 @@
 package model;
 
 public class Projection extends BinarySeqOperation {
-private int  projectedSequence[] = new int[0];
+protected int  projectedSequence[] = new int[0];
 private int seq1[];
 private int seq2[];
 	public Projection(int[] seq1a, int[] seq2) {
@@ -37,21 +37,13 @@ private int seq2[];
 	
 	public String toString() {
 		//Projecting [1, 3, 5] to [2, 1, 6, 3, 1, 4, 5, 3] results in: [1, 3, 1, 5, 3]
-		String projected="[";
+
 		
-		for(int k=0; k <projectedSequence.length;k++) {
-			projected+=projectedSequence[k];
-			
-			if(k+1!=projectedSequence.length) {
-				projected+=", ";
-			}
-		}
-		projected+="]";
-		
-		String status="Projecting "+arrayString1(seq1)+" to "+arrayString1(seq2)+" results in: "+projected;
+		String status="Projecting "+arrayString1(seq1)+" to "+arrayString1(seq2)+" results in: "+arrayString1(projectedSequence);
 		
 		return status;
 		
 	}
-
+	
+	
 }

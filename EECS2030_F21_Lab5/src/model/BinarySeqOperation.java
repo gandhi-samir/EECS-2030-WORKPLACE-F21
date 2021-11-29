@@ -2,23 +2,29 @@ package model;
 
 public class BinarySeqOperation extends SeqOperation {
 
-public String arrayString1(int [] seq1)	{
-	String seq1string="[";
-	
 
-	for(int i=0; i <seq1.length;i++) {
-		seq1string+=seq1[i];
-		
-		if(i+1!=seq1.length) {
-			seq1string+=", ";
+
+	public int[] getResult() {
+		int [] result= new int [0];
+		if (this instanceof Projection) {
+		result=((Projection)this).projectedSequence;
 		}
+		if(this instanceof SumsOfPrefixes) {
+			result=((SumsOfPrefixes)this).result;
+		}
+		
+		if(this instanceof OccursWithin) {
+			result= new int [1];
+			if(((OccursWithin)this).isTrue==true) {
+				result[0]=1;
+			}
+			else{
+				result[0]=0;
+			}
+			
+		}
+		return result;
 	}
-	seq1string+="]";
-	
-	
-	return seq1string;
-	
-}
 
 
 	
