@@ -8,6 +8,9 @@ public class SumsOfPrefixes extends BinarySeqOperation {
 	public SumsOfPrefixes(int[] seq1) {
 		this.seq1 = seq1;
 
+		
+		
+		if(seq1.length>0) {
 		count++;
 		int[] result = new int[seq1.length + 1];
 		result[0] = 0;
@@ -18,7 +21,11 @@ public class SumsOfPrefixes extends BinarySeqOperation {
 
 		}
 		this.result = result;
-
+		}
+		
+		else {
+			result = new int [0];
+		}
 	}
 
 	public String toString() {
