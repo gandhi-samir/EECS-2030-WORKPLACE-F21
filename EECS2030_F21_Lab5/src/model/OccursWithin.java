@@ -42,7 +42,6 @@ public class OccursWithin extends BinarySeqOperation {
 
 			}
 		}
-		
 
 	}
 
@@ -50,16 +49,15 @@ public class OccursWithin extends BinarySeqOperation {
 		String status = "false";
 //[1, 6, 1] does not occur within [2, 1, 6, 3, 1, 4, 5, 3]
 		if (isTrue == true) {
-			status =arrayString1(seq1)+" occurs within "+arrayString1(seq2);
+			status = arrayString1(seq1) + " occurs within " + arrayString1(seq2);
 
 		}
-		
+
 		else {
-			status =arrayString1(seq1)+" does not occur within "+arrayString1(seq2);
+			status = arrayString1(seq1) + " does not occur within " + arrayString1(seq2);
 		}
 		return status;
 
 	}
-	
-	
+
 }
