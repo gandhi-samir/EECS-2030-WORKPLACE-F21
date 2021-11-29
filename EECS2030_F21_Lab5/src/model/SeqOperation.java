@@ -17,5 +17,7 @@ public class SeqOperation {
 		return seq1string;
 
 	}
+	
+	
 
 }

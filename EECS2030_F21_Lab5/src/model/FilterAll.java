@@ -3,6 +3,7 @@ package model;
 public class FilterAll extends SeqEvaluator {
 	protected String[] results = new String[0];
 
+
 	protected int count = 0;
 
 	public FilterAll(int i) {
@@ -11,11 +12,15 @@ public class FilterAll extends SeqEvaluator {
 
 	public void add(BinarySeqOperation binOp) {
 		if (binOp.getResult()[0] == 1) {
+			
 			results[count] = "true";
 			count++;
 		}
-		if (binOp.getResult()[0] == 0) {
+		else if (binOp.getResult()[0] == 0) {
 			results[count] = "_";
+			count++;
+		}
+		else {
 			count++;
 		}
 

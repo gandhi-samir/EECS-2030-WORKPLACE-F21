@@ -13,6 +13,8 @@ public class SeqEvaluator extends SeqOperation {
 
 		if (operation.equals("op:occursWithin")) {
 			if (this instanceof ConcatAll) {
+				BinarySeqOperation binOp = new OccursWithin(seq1, seq2);
+				((ConcatAll) this).concat(binOp);
 				countIncompatible++;
 
 			}
@@ -30,6 +32,8 @@ public class SeqEvaluator extends SeqOperation {
 
 			}
 			if (this instanceof FilterAll) {
+				BinarySeqOperation binOp = new Projection(seq1, seq2);
+				((FilterAll) this).add(binOp);
 				countIncompatible++;
 			}
 		}
@@ -41,6 +45,8 @@ public class SeqEvaluator extends SeqOperation {
 
 			}
 			if (this instanceof FilterAll) {
+				BinarySeqOperation binOp = new SumsOfPrefixes(seq1);
+				((FilterAll) this).add(binOp);
 				countIncompatible++;
 			}
 		}

@@ -8,6 +8,7 @@ public class ConcatAll extends SeqEvaluator {
 
 	public ConcatAll(int i) {
 		operationsList = new String[i];
+		
 	}
 
 	public void concat(BinarySeqOperation binOp) {

@@ -211,6 +211,7 @@ public class StarterTests {
 			 * Assume that when "op:sumsOfPrefixes" is specified, 
 			 * 	the third argument is always null.
 			 */
+			
 			evaluator.addOperation("op:sumsOfPrefixes", seq1, null);
 			
 			/*
@@ -325,6 +326,7 @@ public class StarterTests {
 			 */
 			evaluator.addOperation("op:occursWithin", seq3, seq4);
 			
+			
 			/*
 			 * The result of FilterAll indicates the resulting value of each added operation.
 			 * For example: 
@@ -362,12 +364,16 @@ public class StarterTests {
 			 * Add the 1st operation which results in a true/false value.
 			 */
 			evaluator.addOperation("op:occursWithin", seq1, seq4);
+	
+		
 			
 			/*
 			 * Add the 2nd operation which does NOT result in a true/false value.
 			 * This operation is incompatible with FilterAll.
 			 */
 			evaluator.addOperation("op:projection", seq1, seq3);
+		
+
 			
 			/*
 			 * Add the 3rd operation which does NOT result in a true/false value.
