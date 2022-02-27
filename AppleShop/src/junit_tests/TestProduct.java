@@ -27,7 +27,7 @@ public class TestProduct {
 				assertTrue(!p.hasCellularConnectivity());
 				
 				assertEquals(0.0,p.getOriginalPrice(),0.1);
-				//assertTrue(0.0==p.getOriginalPrice());
+				assertTrue(0.0==p.getOriginalPrice());
 				assertEquals(0.0,p.getDiscountValue(),0.1);
 				
 				assertEquals(0.0,p.getPrice(),0.1);

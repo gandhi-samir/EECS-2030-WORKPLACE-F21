@@ -29,7 +29,7 @@ public class TestRefurbishedStore {
 		p1.setFinish("Space Grey");
 		p1.setStorage(1000);
 		p1.setHasCellularConnectivity(true);
-		p1.setDiscountValue(220.00);
+		p1.setDiscountValue(220.00); 
 		Entry e1 = new Entry("F9DN4NKQ1GC",p1);
 		rs.addEntry(e1);
 		
